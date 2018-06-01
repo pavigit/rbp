@@ -1,0 +1,7 @@
+<suite name="UiTests">
+	<test name="testngTest">
+		<classes>
+			<class name="UiTest.src.test.java.rbp.ui.tests.CreateHotelTests" />
+		</classes>
+	</test>
+</suite>

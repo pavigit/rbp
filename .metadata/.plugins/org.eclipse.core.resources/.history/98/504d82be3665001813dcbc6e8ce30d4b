@@ -1,0 +1,41 @@
+package rbp.ui.tests;
+
+import rbp.ui.pageobjects.*;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class CreateHotelTests extends testSetUp {
+	
+	@Test
+    public void CreateNewHotel() throws InterruptedException
+    {
+        String[] hotel = {"Hotel xyz", "xyz Street", "xyz", "01111111111", "test123@test.com"};
+
+        //Navigate to the RBP page and login
+        driver.navigate().to(baseUrl);
+        loginPage lPage = new loginPage(driver);
+        lPage.enterUsername("admin");
+        lPage.enterPassword("password");
+        lPage.clickLogin();
+        
+        //Create a hotel in the homePage
+        homePage hPage = new homePage(driver);
+        hPage.enterHotelName(hotelName);
+        hPage.enterAddress(address);
+                .ClickLogin()
+                .PopulateUsername("admin")
+                .PopulatePassword("password")
+                .ClickLogin()
+                .PopulateHoteName(hotel.getName())
+                .PopulateAddress(hotel.getAddress())
+                .PopulateOwner(hotel.getContact().getName())
+                .PopulatePhone(hotel.getContact().getPhone())
+                .PopulateEmail(hotel.getContact().getEmail())
+                .ClickCreateHotel();
+
+        Assert.assertThat(hotelListingPage.ReadHotelName(hotelListingPage.HotelCount()), is(equalTo(hotel.getName())));
+    }
+
+}

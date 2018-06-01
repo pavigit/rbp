@@ -1,0 +1,7 @@
+<suite name="UiTests">
+	<test name="testngTest">
+		<classes>
+			<class name=".rbp.ui.tests.CreateHotelTests" />
+		</classes>
+	</test>
+</suite>

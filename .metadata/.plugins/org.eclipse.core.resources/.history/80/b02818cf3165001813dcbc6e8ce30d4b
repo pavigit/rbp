@@ -1,0 +1,29 @@
+package rbp.ui.tests;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class testSetUp {
+	
+	protected WebDriver driver;
+    protected String baseUrl;
+
+    @BeforeClass
+    public void SetUp()
+    {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        baseUrl = "http://localhost:3003/";
+    }
+
+    @AfterClass
+    public void TearDown()
+    {
+        driver.quit();
+    }
+
+}

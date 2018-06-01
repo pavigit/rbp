@@ -1,0 +1,10 @@
+Feature: As an admin 
+I should be able to create some hotels in Restful Booking Platform
+
+Scenario Outline: Create Hotels
+
+Given I navigate to Restful Booking Platform
+And I login with admin and password
+When enter HotelName, Address, Owner, Contact and Email
+And click create
+Then hotel should be created

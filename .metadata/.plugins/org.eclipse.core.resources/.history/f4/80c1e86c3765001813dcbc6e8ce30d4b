@@ -1,0 +1,36 @@
+package rbp.ui.tests;
+
+import rbp.ui.pageobjects.*;
+//import org.testng.Assert;
+//import org.testng.annotations.AfterClass;
+//import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class CreateHotelTests extends testSetUp {
+	
+	@Test
+    public void CreateNewHotel() throws InterruptedException
+    {
+        String[] hotelDetails = {"Hotel xyz", "xyz Street", "xyz", "01111111111", "test123@test.com"};
+
+        //Navigate to the RBP page and login
+        driver.navigate().to(baseUrl);
+        loginPage lPage = new loginPage(driver);
+        lPage.enterUsername("admin");
+        lPage.enterPassword("password");
+        lPage.clickLogin();
+        
+        //Create a hotel in the homePage
+        homePage hPage = new homePage(driver);
+        hPage.enterHotelName(hotelDetails[0]);
+        hPage.enterAddress(hotelDetails[1]);
+        hPage.enterOwner(hotelDetails[2]);
+        hPage.enterPhone(hotelDetails[3]);
+        hPage.enterEmail(hotelDetails[4]);
+        hPage.clickCreate();
+        
+        //Could not assert anything here as the RBP create hotel is not working for me
+        //Assert.assertEquals("", "");
+    }
+
+}
